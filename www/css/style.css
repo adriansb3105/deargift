@@ -1,0 +1,57 @@
+/* CSS REQUIRED */
+.state-icon {
+    left: -5px;
+}
+.list-group-item-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(66, 139, 202);
+}
+
+/* DEMO ONLY - REMOVES UNWANTED MARGIN */
+.well .list-group {
+    margin-bottom: 0px;
+}
+
+body{
+	background: #870A21;
+}
+
+.title{
+	background: #971E3E;
+}
+
+.white-font{
+	color: white;
+}
+
+#img-gift{
+	width: 35%;
+}
+
+#img-facebook{
+	width: 30%;
+}
+
+.margin-top{
+	margin-top: 5%;
+}
+
+.margin-bottom{
+	margin-bottom: 5%;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.red{
+	color: red;
+}
+
+.red-bg{
+	background: red;
+}
+
+.margin-top-10{
+	margin-top: 10%;
+}
