@@ -29,29 +29,23 @@ $(document).ready(function(){
 			return false;
 		}else{
 			$.ajax({
-				url: 'php/connect.php',
-				type: 'POST',
-				dataType: 'json',
-				cache: false,
-				data: {action: 'login', email: email, password: password}
-			}).done(function(data){
-				if (data.length === 0){
-					swal('Login incorrecto', 'Usuario o contrasena incorrectos', "warning");
-				}else{
-					window.location = 'home.html';
-				}
-			}).fail(function(data){
-				alert("error" + data.toJSON());
-			}).always(function(){
-				
-			});
-			
-			
+			    data: {'email': email, 'password': password},
+			    url: 'https://deargift.herokuapp.com/?login',
+			    type: 'post',
+			    success: function(result,status,xhr){
+			    	let res = JSON.parse(result);
+			    	if(res.length != 0){
+			    		window.location = 'home.html';
+			    	}else{
+			    		swal('Login incorrecto', 'Usuario o contrasena incorrectos', "warning");
+			    	}
+			    },
+			    error(xhr, status, error){
+			    	swal('Error', 'Se ha producido un error con el inicio de sesion', "error");
+			    }
+  			});
 		}
 		
 
 	});
-
-
-
 });

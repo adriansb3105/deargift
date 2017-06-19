@@ -45,7 +45,46 @@ $(document).ready(function(){
 			    }
   			});
 		}
-		
+	});
 
+	$('#btn-home').on('click', function(e){
+		window.location = 'form.html';
+	});
+
+	$('#btn-form').on('click', function(e){
+		e.preventDefault();
+		
+		let sexo = $('#sexo').val();
+		let etapa = $('#etapa').val();
+		let pasatiempo = $('#pasatiempo').val();
+		let color = $('#color').val();
+		
+		
+		console.log(sexo);
+		console.log(etapa);
+		console.log(pasatiempo);
+		console.log(color);
+		console.log('-----------------------');
+
+		if($.trim(sexo) === '' || $.trim(etapa) === '' || pasatiempo.length === 0 || color.length === 0){//vacios
+			swal('Faltan filtros', 'Debe completar todos los campos', "warning");
+			return false;
+		}else{
+			$.ajax({
+			    data: {'sexo': sexo, 'etapa': etapa, 'pasatiempo': pasatiempo, 'color': color},
+			    url: 'http://localhost/deargift-server/?getProducts',
+			    type: 'post',
+			    success: function(result,status,xhr){
+			    	let res = JSON.parse(result);
+			    	if(res.length != 0){
+			    		console.log(res);
+			    		//console.log(res[0][8]);
+			    	}
+			    },
+			    error(xhr, status, error){
+			    	swal('Error', 'Se ha producido un error al mostrar los productos', "error");
+			    }
+  			});
+		}
 	});
 });
