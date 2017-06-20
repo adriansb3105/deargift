@@ -29,7 +29,7 @@ body{
 }
 
 #img-facebook{
-	width: 30%;
+	width: 10%;
 }
 
 .margin-top{
@@ -54,4 +54,12 @@ body{
 
 .margin-top-10{
 	margin-top: 10%;
+}
+
+.margin-bottom-10{
+	margin-bottom: 10%;
+}
+
+.bold{
+	font-weight: bold;
 }

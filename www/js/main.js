@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+	$("#div2").hide();
 	
 	$('#iniciar').on('click', function(){
 		window.location = 'login.html';
@@ -77,8 +79,23 @@ $(document).ready(function(){
 			    success: function(result,status,xhr){
 			    	let res = JSON.parse(result);
 			    	if(res.length != 0){
-			    		console.log(res);
-			    		//console.log(res[0][8]);
+
+			    		//for (let i = 0; i < res.length; i++) {
+			    		//	if (res[i].length === 0){
+			    		//		res.splice(res[i], 1);
+			    		//	}
+			    		//}
+			    		for(let i=0; i < res.length; i++){
+			    			console.log(res[0][i][8]);
+			    			//imgProduct = res[0][i][8];
+			    			//window.location = 'products.html';
+			    			//$('#img-test').attr('src', res[0][i][8]);
+			    			$("#div1").hide();
+			    			$("#div2").show();
+
+			    			$("#img2").attr('src', res[0][i][8]);
+			    		}
+			    		//	console.log(res[0][8]);	
 			    	}
 			    },
 			    error(xhr, status, error){
