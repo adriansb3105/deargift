@@ -1,6 +1,13 @@
 $(document).ready(function(){
 
 	$("#div2").hide();
+	//$("#div1").hide();
+	//$("#div2").show();
+
+	$('#btn-return').on('click', function(){
+		window.location = 'form.html';
+	});
+
 	
 	$('#iniciar').on('click', function(){
 		window.location = 'login.html';
@@ -77,26 +84,47 @@ $(document).ready(function(){
 			    url: 'http://localhost/deargift-server/?getProducts',
 			    type: 'post',
 			    success: function(result,status,xhr){
+			    	console.log('result: '+result);
 			    	let res = JSON.parse(result);
 			    	if(res.length != 0){
 
-			    		//for (let i = 0; i < res.length; i++) {
-			    		//	if (res[i].length === 0){
-			    		//		res.splice(res[i], 1);
-			    		//	}
-			    		//}
-			    		for(let i=0; i < res.length; i++){
-			    			console.log(res[0][i][8]);
-			    			//imgProduct = res[0][i][8];
-			    			//window.location = 'products.html';
-			    			//$('#img-test').attr('src', res[0][i][8]);
-			    			$("#div1").hide();
-			    			$("#div2").show();
+			    		let productsList = $("#products-list");
 
-			    			$("#img2").attr('src', res[0][i][8]);
+			    		console.log(res);
+
+			    		for(let i=0; i < res.length; i++){
+			    			//if (res[i].length != 0) {
+			    				//for (let j=0; j < res[i].length; j++) {
+			    					//if (res[i][j].length != 0) {
+
+			    						$('#mensaje').html('Se han encontrado las siguientes coincidencias');
+
+			    						productsList.append(`
+														<a href="#">
+															<div class="col s6 m4 l4 xl3 gallery">										
+																	<img src="`+res[i][8]+`" class="img-responsive">										
+																<div class="desc">
+																	<h5>`+res[i][1]+`</h5>
+																	<p>`+res[i][2]+`</p>
+																	<p class="bold">Precio: `+res[i][3]+` colones</p>
+																</div>
+															</div>
+														</a>
+									    			`);
+			    					//}else{
+			    					//	$('#mensaje').html('No se han encontrado resultados');
+			    					//}
+			    				//}
+			    			//}else{
+			    			//	$('#mensaje').html('No se han encontrado resultados');
+			    			//}
 			    		}
-			    		//	console.log(res[0][8]);	
+			    	}else{
+			    		$('#mensaje').html('No se han encontrado resultados');
 			    	}
+
+			    	$("#div1").hide();
+			    	$("#div2").show();
 			    },
 			    error(xhr, status, error){
 			    	swal('Error', 'Se ha producido un error al mostrar los productos', "error");
