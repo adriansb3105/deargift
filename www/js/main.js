@@ -1,11 +1,17 @@
 $(document).ready(function(){
 
 	$("#div2").hide();
-	//$("#div1").hide();
+	$("#div3").hide();
+	$("#div1").show();
 	//$("#div2").show();
 
 	$('#btn-return').on('click', function(){
 		window.location = 'form.html';
+	});
+
+	$('#btn-return2').on('click', function(){
+		$("#div3").hide();
+		$("#div2").show();
 	});
 
 	
@@ -82,42 +88,85 @@ $(document).ready(function(){
 			$.ajax({
 			    data: {'sexo': sexo, 'etapa': etapa, 'pasatiempo': pasatiempo, 'color': color},
 			    url: 'http://localhost/deargift-server/?getProducts',
+			    //dataType: 'json',
 			    type: 'post',
 			    success: function(result,status,xhr){
-			    	console.log('result: '+result);
+			    	
 			    	let res = JSON.parse(result);
+			    	
+			    	console.log(res);
+
+
 			    	if(res.length != 0){
 
 			    		let productsList = $("#products-list");
 
-			    		console.log(res);
-
+			    		
 			    		for(let i=0; i < res.length; i++){
-			    			//if (res[i].length != 0) {
-			    				//for (let j=0; j < res[i].length; j++) {
-			    					//if (res[i][j].length != 0) {
 
-			    						$('#mensaje').html('Se han encontrado las siguientes coincidencias');
+			    			
+							$('#mensaje').html('Se han encontrado las siguientes coincidencias');
 
-			    						productsList.append(`
-														<a href="#">
-															<div class="col s6 m4 l4 xl3 gallery">										
-																	<img src="`+res[i][8]+`" class="img-responsive">										
-																<div class="desc">
-																	<h5>`+res[i][1]+`</h5>
-																	<p>`+res[i][2]+`</p>
-																	<p class="bold">Precio: `+res[i][3]+` colones</p>
-																</div>
-															</div>
-														</a>
-									    			`);
-			    					//}else{
-			    					//	$('#mensaje').html('No se han encontrado resultados');
-			    					//}
-			    				//}
-			    			//}else{
-			    			//	$('#mensaje').html('No se han encontrado resultados');
-			    			//}
+							productsList.append(`
+											<a id="img`+i+`" href="#">
+												<div class="col s6 m4 l4 xl3 gallery">										
+														<img src="`+res[i].url+`" class="img-responsive">										
+													<div class="desc">
+														<h5>`+res[i].nombre+`</h5>
+														<p>Precio: `+res[i].precio+` colones</p>
+													</div>
+												</div>
+											</a>
+						    			`);
+							let imgId = "#img"+i;
+							$(imgId).on("click", function(){
+								//alert(res[i].id +": "+ res[i].nombre);
+	$("#div3 #contenido").html(`
+								<div class="wish">
+									<a href="#" id="wish" class="tooltipped" data-position="bottom" data-tooltip="Deseo!"><img src="img/wish3.png" class="img-responsive circle wish-img" alt="wish"></a>
+									<a href="#" id="buy" class="tooltipped" data-position="bottom" data-tooltip="Comprar"><img src="img/buy.png" class="img-responsive circle wish-img" alt="comprar"></a>
+								</div>
+
+								<div class="white-font">
+									<center><h5 class="bold">`+res[i].nombre+`</h5></center>
+								</div>
+								
+								<center>
+									<div id="img-product" class="col s6 m4 l4 xl3 margin-top-10">
+										<img src="`+res[i].url+`" class="img-responsive">
+									</div>
+									<span class="flow-text white-font">Precio: `+res[i].precio+` colones</span>
+								</center>
+								
+								<div class="margin-top-10">
+									<span class="flow-text white-font">Color `+res[i].color+`</span><br>
+									<span class="flow-text white-font">`+res[i].descripcion+`</span>
+								</div>`);
+
+								$('.tooltipped').tooltip({delay: 50});	
+
+								$('#wish').on('click', function(){
+									Materialize.toast('Agregado a la lista de deseos!', 2000, 'rounded');
+								});
+
+								$('#buy').on('click', function(){
+									swal({
+										title: "Comprar",
+										text: "Confirma que desea agregar este producto a la cesta?",
+										type: "info",
+										showCancelButton: true,
+										cancelButtonText: 'No',
+										confirmButtonColor: "#81c784",
+										confirmButtonText: "Si!",
+										closeOnConfirm: false
+									}, function(){
+										swal({title: "Agregado!", text: "Se ha agregado este producto a tu cesta de compras!", timer: 2000, showConfirmButton: false});
+									});
+								});
+	
+								$("#div2").hide();
+								$("#div3").show();			
+							});
 			    		}
 			    	}else{
 			    		$('#mensaje').html('No se han encontrado resultados');
@@ -133,3 +182,7 @@ $(document).ready(function(){
 		}
 	});
 });
+
+
+
+
