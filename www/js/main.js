@@ -5,6 +5,10 @@ $(document).ready(function(){
 	$("#div1").show();
 	//$("#div2").show();
 
+ $(".button-collapse").sideNav();
+
+ 
+
 	$('#btn-return').on('click', function(){
 		window.location = 'form.html';
 	});
@@ -13,6 +17,12 @@ $(document).ready(function(){
 		$("#div3").hide();
 		$("#div2").show();
 	});
+
+	$(document).ready(function(){
+      $('.carousel').carousel({
+      	duration: 500
+      });
+    });
 
 	
 	$('#iniciar').on('click', function(){
@@ -81,7 +91,7 @@ $(document).ready(function(){
 		console.log(color);
 		console.log('-----------------------');
 
-		if($.trim(sexo) === '' || $.trim(etapa) === '' || pasatiempo.length === 0 || color.length === 0){//vacios
+		if($.trim(sexo) === '' || $.trim(etapa) === '' || pasatiempo.length === 0 || $.trim(color) === ''){//vacios
 			swal('Faltan filtros', 'Debe completar todos los campos', "warning");
 			return false;
 		}else{
@@ -91,8 +101,13 @@ $(document).ready(function(){
 			    //dataType: 'json',
 			    type: 'post',
 			    success: function(result,status,xhr){
-			    	
+
+			    	//console.log(result);
+			    	//console.log(result.length);
+			    	//console.log(JSON.parse(result));
+
 			    	let res = JSON.parse(result);
+			    	//let res = result;
 			    	
 			    	console.log(res);
 
@@ -121,10 +136,10 @@ $(document).ready(function(){
 							let imgId = "#img"+i;
 							$(imgId).on("click", function(){
 								//alert(res[i].id +": "+ res[i].nombre);
-	$("#div3 #contenido").html(`
+							$("#div3 #contenido").html(`
 								<div class="wish">
-									<a href="#" id="wish" class="tooltipped" data-position="bottom" data-tooltip="Deseo!"><img src="img/wish3.png" class="img-responsive circle wish-img" alt="wish"></a>
-									<a href="#" id="buy" class="tooltipped" data-position="bottom" data-tooltip="Comprar"><img src="img/buy.png" class="img-responsive circle wish-img" alt="comprar"></a>
+									<a href="#!" id="wish" class="tooltipped" data-position="bottom" data-tooltip="Deseo!"><img src="img/wish3.png" class="img-responsive circle wish-img" alt="wish"></a>
+									<a href="#!" id="buy" class="tooltipped" data-position="bottom" data-tooltip="Comprar"><img src="img/buy.png" class="img-responsive circle wish-img" alt="comprar"></a>
 								</div>
 
 								<div class="white-font">
@@ -174,6 +189,9 @@ $(document).ready(function(){
 
 			    	$("#div1").hide();
 			    	$("#div2").show();
+
+
+
 			    },
 			    error(xhr, status, error){
 			    	swal('Error', 'Se ha producido un error al mostrar los productos', "error");
@@ -186,3 +204,30 @@ $(document).ready(function(){
 
 
 
+
+
+/*
+			    			let name = res[i].nombre;
+			    			name = name.replace("á", "\u00E1");
+			    			name = name.replace("é", "\u00E9");
+			    			name = name.replace("í", "\u00ED");
+			    			name = name.replace("ó", "\u00F3");
+			    			name = name.replace("ú", "\u00FA");
+			    			name = name.replace("Á", "\u00C1");
+			    			name = name.replace("É", "\u00C9");
+			    			name = name.replace("Í", "\u00CD");
+			    			name = name.replace("Ó", "\u00D3");
+							name = name.replace("Ú", "\u00DA");
+
+							let description = res[i].descripcion;
+			    			description = description.replace("á", "\u00E1");
+			    			description = description.replace("é", "\u00E9");
+			    			description = description.replace("í", "\u00ED");
+			    			description = description.replace("ó", "\u00F3");
+			    			description = description.replace("ú", "\u00FA");
+			    			description = description.replace("Á", "\u00C1");
+			    			description = description.replace("É", "\u00C9");
+			    			description = description.replace("Í", "\u00CD");
+			    			description = description.replace("Ó", "\u00D3");
+							description = description.replace("Ú", "\u00DA");
+*/
