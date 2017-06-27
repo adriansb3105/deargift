@@ -25,11 +25,11 @@ body{
 }
 
 #img-gift{
-	width: 35%;
+	width: 45%;
 }
 
 #img-facebook{
-	width: 30%;
+	width: 10%;
 }
 
 .margin-top{
@@ -55,3 +55,112 @@ body{
 .margin-top-10{
 	margin-top: 10%;
 }
+
+.margin-bottom-10{
+	margin-bottom: 10%;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+img{
+	width: 100%;
+	height: auto;
+}
+
+div.gallery{
+	/*border: 1px solid #ccc;*/
+    float: left;
+}
+
+div.gallery:hover {
+    background: rgba(149, 29, 61, .5);
+}
+
+div.desc {
+    margin-bottom: 2px;
+    text-align: center;
+    color: white;
+}
+
+#products-list h5{
+	font-size: 3vw;
+	font-weight: bold;
+}
+
+#img-product{
+	width: 65%;
+	height: auto;
+}
+
+.wish{
+	width: 100%;
+	text-align: right;
+}
+
+.wish-img{
+	margin: 0 auto;
+	text-align: left;
+	width: 10vw;
+}
+
+
+
+ header, main, footer {
+      padding-left: 300px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
+
+ #menu-icon{
+ 	width: 32px;
+ 	margin-left: 1em;
+ }
+
+
+
+
+
+
+ .slider{
+ 	width: 100%;
+ 	margin: auto;
+ 	overflow: hidden;
+ }
+
+ .slider ul{
+ 	display: flex;
+ 	padding: 0;
+ 	width: 400%;
+
+ 	animation: cambio 15s infinite alternate linear;
+ }
+
+ .slider li{
+ 	width: 100%;
+ 	list-style: none;
+ }
+
+ .slider img{
+ 	width: 100%;
+ 	height: 10vh;
+ }
+
+ @keyframes cambio{
+ 	0% {margin-left: 0;}
+ 	20% {margin-left: 0;}
+
+ 	25% {margin-left: -100%;}
+ 	45% {margin-left: -100%;}
+
+ 	50% {margin-left: -200%;}
+ 	70% {margin-left: -200%;}
+
+ 	75% {margin-left: -300%;}
+ 	100% {margin-left: -300%;}
+ }

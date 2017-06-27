@@ -20,6 +20,14 @@ body{
 	background: #971E3E;
 }
 
+#title-font{
+	font-size: 4em;
+}
+
+.title ul a{
+	margin-left: 0;
+}
+
 .white-font{
 	color: white;
 }
@@ -50,6 +58,10 @@ body{
 
 .red-bg{
 	background: red;
+}
+
+.blue-bg{
+	background: blue;
 }
 
 .margin-top-10{
@@ -119,8 +131,13 @@ div.desc {
 
  #menu-icon{
  	width: 32px;
- 	margin-left: 1em;
+	margin-top: 1em;
+	margin-left: 0;
  }
+
+#slide-out{
+	max-width: 80%;
+}
 
 
 

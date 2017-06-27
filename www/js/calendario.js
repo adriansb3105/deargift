@@ -1,8 +1,9 @@
 $(document).ready(function(){
 
-	moment.locale('es');
- $('#mini-clndr').clndr({
+
+$('#mini-clndr').clndr({
   template: $('#calendar-template').html(),
+  events: events,
   clickEvents: {
     click: function(target) {
       if(target.events.length) {
@@ -27,5 +28,5 @@ $(document).ready(function(){
   adjacentDaysChangeMonth: true
 });
 
- 
-}
+
+});

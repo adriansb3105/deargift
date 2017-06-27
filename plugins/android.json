@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.adriansb3105.deargift"
+        },
+        "cordova-plugin-firebase": {
+            "PACKAGE_NAME": "com.adriansb3105.deargift"
         }
     },
     "dependent_plugins": {}

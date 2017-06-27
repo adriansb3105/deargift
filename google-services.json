@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "780224848600",
+    "firebase_url": "https://deargift-f8ecb.firebaseio.com",
+    "project_id": "deargift-f8ecb",
+    "storage_bucket": "deargift-f8ecb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780224848600:android:f6c9033bf3cafc3c",
+        "android_client_info": {
+          "package_name": "com.adriansb3105.deargift"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780224848600-d2mkmqb370olgno8dnltvq1jfa7mog9m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnrJaueVdFWP_cgJJ4VqM-qDoZ5wn3pGY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

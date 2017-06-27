@@ -18,11 +18,6 @@ $(document).ready(function(){
 		$("#div2").show();
 	});
 
-	$(document).ready(function(){
-      $('.carousel').carousel({
-      	duration: 500
-      });
-    });
 
 	
 	$('#iniciar').on('click', function(){
@@ -123,15 +118,19 @@ $(document).ready(function(){
 							$('#mensaje').html('Se han encontrado las siguientes coincidencias');
 
 							productsList.append(`
-											<a id="img`+i+`" href="#">
-												<div class="col s6 m4 l4 xl3 gallery">										
-														<img src="`+res[i].url+`" class="img-responsive">										
-													<div class="desc">
-														<h5>`+res[i].nombre+`</h5>
-														<p>Precio: `+res[i].precio+` colones</p>
+											<div class="col s12 m6 l4 xl3">
+												<a id="img`+i+`" href="#">
+													<div class="card">
+														<div class="card-image">
+															<img src="`+res[i].url+`">
+															<span class="card-title">`+res[i].nombre+`</span>
+														</div>
+														<div class="card-action">
+															<p>`+res[i].precio+` colones</p>
+														</div>
 													</div>
-												</div>
-											</a>
+												</a>
+											</div>
 						    			`);
 							let imgId = "#img"+i;
 							$(imgId).on("click", function(){
@@ -201,33 +200,3 @@ $(document).ready(function(){
 	});
 });
 
-
-
-
-
-
-/*
-			    			let name = res[i].nombre;
-			    			name = name.replace("á", "\u00E1");
-			    			name = name.replace("é", "\u00E9");
-			    			name = name.replace("í", "\u00ED");
-			    			name = name.replace("ó", "\u00F3");
-			    			name = name.replace("ú", "\u00FA");
-			    			name = name.replace("Á", "\u00C1");
-			    			name = name.replace("É", "\u00C9");
-			    			name = name.replace("Í", "\u00CD");
-			    			name = name.replace("Ó", "\u00D3");
-							name = name.replace("Ú", "\u00DA");
-
-							let description = res[i].descripcion;
-			    			description = description.replace("á", "\u00E1");
-			    			description = description.replace("é", "\u00E9");
-			    			description = description.replace("í", "\u00ED");
-			    			description = description.replace("ó", "\u00F3");
-			    			description = description.replace("ú", "\u00FA");
-			    			description = description.replace("Á", "\u00C1");
-			    			description = description.replace("É", "\u00C9");
-			    			description = description.replace("Í", "\u00CD");
-			    			description = description.replace("Ó", "\u00D3");
-							description = description.replace("Ú", "\u00DA");
-*/
