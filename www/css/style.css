@@ -139,8 +139,26 @@ div.desc {
 	max-width: 80%;
 }
 
+.carousel{
+	height: 15em;
+
+}
+
+.carousel-item{
+	width: 10%;
+
+}
 
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
 
 
 
@@ -180,4 +198,13 @@ div.desc {
 
  	75% {margin-left: -300%;}
  	100% {margin-left: -300%;}
+ }
+
+ .date-table{
+ 	margin-top: 12em;
+ 	color: white;
+ }
+
+  .date-table table tbody tr:hover{
+  	background: rgba(149, 29, 61, .5);
  }

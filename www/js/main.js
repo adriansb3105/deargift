@@ -7,7 +7,7 @@ $(document).ready(function(){
 
  $(".button-collapse").sideNav();
 
- 
+ 	$("#preloader").hide();
 
 	$('#btn-return').on('click', function(){
 		window.location = 'form.html';
@@ -17,6 +17,17 @@ $(document).ready(function(){
 		$("#div3").hide();
 		$("#div2").show();
 	});
+
+
+
+$('.carousel').carousel({dist:0
+});
+
+autoplay()   
+function autoplay() {
+    	$('.carousel').carousel('next');
+    	setTimeout(autoplay, 2000);
+}
 
 
 	
@@ -95,7 +106,11 @@ $(document).ready(function(){
 			    url: 'http://localhost/deargift-server/?getProducts',
 			    //dataType: 'json',
 			    type: 'post',
+			    beforeSend: function(xhr){
+			    	$("#preloader").show();
+			    },
 			    success: function(result,status,xhr){
+			    	$("#preloader").hide();
 
 			    	//console.log(result);
 			    	//console.log(result.length);
@@ -193,6 +208,7 @@ $(document).ready(function(){
 
 			    },
 			    error(xhr, status, error){
+			    	$("#preloader").hide();
 			    	swal('Error', 'Se ha producido un error al mostrar los productos', "error");
 			    }
   			});
