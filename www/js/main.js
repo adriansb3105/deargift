@@ -78,6 +78,60 @@ function autoplay() {
 		}
 	});
 
+
+	$('#btn-registrar').on('click', function(e){
+		e.preventDefault();
+
+		let nameRegister = $('#name-register').val();
+		let emailRegister = $('#email-register').val();   
+		let passwordRegister = $('#password-register').val();
+		let passwordRegisterVerify = $('#password-register-verify').val();
+		let expresionRegister = /\w+@\w+\.+[a-z]/;
+
+		if($.trim(nameRegister) === '' || $.trim(emailRegister) === '' || $.trim(passwordRegister) === '' || $.trim(passwordRegisterVerify) === ''){//vacios
+			swal('Error', 'Debe ingresar todos los campos', "error");
+			return false;
+		}else if(!expresionRegister.test(emailRegister)){
+			swal('Error', 'El correo ingresado no es valido', "error");
+			return false;
+		}else if(passwordRegister !== passwordRegisterVerify){
+			swal('Error', 'Las contrase\u00F1as no coinciden', "error");
+			return false;
+		}else{
+			$.ajax({
+			    data: {'name':nameRegister, 'email': emailRegister, 'password': passwordRegister, 'tipo':'usuario'},
+			    url: 'http://localhost/deargift-server/?registerUser',
+			    type: 'post',
+			    success: function(result,status,xhr){
+			    	
+			    	if(result){
+
+			    		swal({
+						  title: "Registro correcto",
+						  text: "Por favor inicie la sesion",
+						  type: "success",
+						  showCancelButton: false,
+						  confirmButtonColor: "#971E3E",
+						  confirmButtonText: "Listo",
+						  closeOnConfirm: false
+						},
+						function(){
+						  window.location = 'login.html';
+						});
+
+			    	}else{
+			    		swal('Error al registrar el usuario', 'No se pudo registrar el usuario', "error");
+			    	}
+			    },
+			    error(xhr, status, error){
+			    	swal('Error', 'Se ha producido un error con el registro del usuario', "error");
+			    }
+  			});
+		}
+
+	});
+
+
 	$('#btn-home').on('click', function(e){
 		window.location = 'form.html';
 	});
