@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<title>Deargift</title>
 </head>
-<body>
+<body id="body-login">
 
 	<nav>
 			<div class="title nav-wrapper">
@@ -65,13 +65,30 @@
 					</div>
 
 					<button class="margin-top-10 btn waves-effect waves-light" type="submit" id="btn-entrar" name="btn-entrar">Entrar</button>
+
+					<button class="margin-top-10 btn waves-effect waves-light" type="button" id="btn-test" name="btn-test">Test</button>
 				</form>
+
+				
+					<div id="preloader-login" class="margin-top preloader-wrapper small active">
+						<div class="spinner-layer spinner-green-only">
+							<div class="circle-clipper left">
+								<div class="circle"></div>
+							</div>
+							<div class="gap-patch">
+								<div class="circle"></div>
+							</div>
+							<div class="circle-clipper right">
+								<div class="circle"></div>
+							</div>
+						</div>
+					</div>
 			</center>
 		</div>
 		
 		<center>
 			<p class="margin-top-10 margin-bottom-10 white-font">&Oacute;</p>
-			<a class="margin-top-10" href="#"><img id="img-facebook" class="responsive-img circle" src="img/facebook100.png" alt="facebook"></a>
+			<a class="margin-top-10" href="#!"><img id="img-facebook" class="responsive-img circle" src="img/facebook100.png" alt="facebook"></a>
 		</center>
 
 		<div class="margin-top margin-bottom white-font">
@@ -83,7 +100,7 @@
 		
 		<div class="margin-top">
 			<center>
-				<img id="img-gift" class="responsive-img circle" src="img/gift.jpg">
+				<img id="img-gift" class="responsive-img circle" src="img/rocket-gift.jpg">
 			</center>
 		</div>
 		
@@ -98,5 +115,11 @@
 	<script src="js/sweetalert.min.js"></script>
 	<script src="js/main.js"></script>
 	
+	<script>
+		$(document).ready(function(){
+			swal('¡Importante!', 'Las entregas inmediatas se realizan solo en San José, entregas a otras partes del país se envían por correos de Costa Rica.', "warning");
+		});
+	</script>
+
 </body>
 </html>

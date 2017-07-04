@@ -76,6 +76,11 @@ body{
 	font-weight: bold;
 }
 
+.fondo{
+	background: #870A21;
+}
+
+
 img{
 	width: 100%;
 	height: auto;
@@ -140,14 +145,34 @@ div.desc {
 }
 
 .carousel{
+	width: 100%;
 	height: 15em;
-
 }
+
+
+
+.page-footer{
+	height: 25vh;
+}
+
+
+.one-time{
+	width: 100%;
+	height: 25vh;
+}
+
 
 .carousel-item{
-	width: 10%;
-
+	width: 50px;
 }
+
+
+.one-time div img{
+	width: 50%;
+	height: 15vh;
+}
+
+
 
 
 body {
@@ -159,7 +184,6 @@ body {
   main {
     flex: 1 0 auto;
   }
-
 
 
  .slider{
@@ -208,3 +232,16 @@ body {
   .date-table table tbody tr:hover{
   	background: rgba(149, 29, 61, .5);
  }
+
+
+
+
+
+
+
+
+
+
+ @media only screen and (max-width: 500px) {
+    
+}

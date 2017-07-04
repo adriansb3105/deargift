@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<meta name="format-detection" content="telephone=no">
 	<meta name="msapplication-tap-highlight" content="no">
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -9,11 +10,13 @@
 	<link rel="stylesheet" href="css/style.css">
 	<title>Deargift</title>
 </head>
-<body>
+<body id="body-login">
 
-	<div class="row title">
-		<center><h1 class="white-font">Deargift</h1></center>	
-	</div>
+	<nav>
+			<div class="title nav-wrapper">
+				<a href="#!" id="title-font" class="brand-logo center">Deargift</a>
+			</div>
+		</nav>
 		
 		
 	<div class="container">
@@ -32,8 +35,6 @@
 					<h4>T&eacute;rminos y Condiciones</h4>
 					<p>
 						Estos t&eacute;rminos y condiciones crean un contrato entre usted y Deargift (el "Acuerdo").
-					</p>
-						Lo comento para que no haga scroll down
 						Lea el Acuerdo detenidamente. Para confirmar que entiende y acepta el Acuerdo, haga clic en "Aceptar".
 						Todos los precios indicados para los productos que est&aacute;n disponibles para cada producto incluyen el IVA a los tipos vigentes y est&aacute;n denominados en colones.
 						Los gastos de env&iacute;o se sumar&aacute;n al precio de los productos y van incluidos en el precio final de la compra.
@@ -60,36 +61,65 @@
 
 					<div class="margin-top-10 input-field">
 						<input class="white-font" id="password-login" name="password-login" type="password">
-						<label for="password-loginf">Contrase&ntilde;a</label>
+						<label for="password-login">Contrase&ntilde;a</label>
 					</div>
 
 					<button class="margin-top-10 btn waves-effect waves-light" type="submit" id="btn-entrar" name="btn-entrar">Entrar</button>
+
+					<button class="margin-top-10 btn waves-effect waves-light" type="button" id="btn-test" name="btn-test">Test</button>
 				</form>
+
+				
+					<div id="preloader-login" class="margin-top preloader-wrapper small active">
+						<div class="spinner-layer spinner-green-only">
+							<div class="circle-clipper left">
+								<div class="circle"></div>
+							</div>
+							<div class="gap-patch">
+								<div class="circle"></div>
+							</div>
+							<div class="circle-clipper right">
+								<div class="circle"></div>
+							</div>
+						</div>
+					</div>
 			</center>
 		</div>
 		
 		<center>
-			<p class="margin-top-10 margin-bottom-10 white-font">O</p>
-			<a class="margin-top-10" href="#"><img id="img-facebook" class="responsive-img circle" src="img/facebook100.png" alt="facebook"></a>
+			<p class="margin-top-10 margin-bottom-10 white-font">&Oacute;</p>
+			<a class="margin-top-10" href="#!"><img id="img-facebook" class="responsive-img circle" src="img/facebook100.png" alt="facebook"></a>
 		</center>
-		
-		<!--
-		<div>
+
+		<div class="margin-top margin-bottom white-font">
 			<center>
-				<img id="img-gift" class="responsive-img circle" src="img/gift.jpg">
+				<span class="flow-text bold white-font">¿No tienes cuenta? <a href="register.html">Registrate!!</a></span>
 			</center>
 		</div>
-		-->
+		
+		
+		<div class="margin-top">
+			<center>
+				<img id="img-gift" class="responsive-img circle" src="img/rocket-gift.jpg">
+			</center>
+		</div>
+		
 
 	</div>
 	
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/materialize.min.js"></script>
 	<script src="js/sweetalert.min.js"></script>
 	<script src="js/main.js"></script>
 	
+	<script>
+		$(document).ready(function(){
+			swal('¡Importante!', 'Las entregas inmediatas se realizan solo en San José, entregas a otras partes del país se envían por correos de Costa Rica.', "warning");
+		});
+	</script>
+
 </body>
 </html>

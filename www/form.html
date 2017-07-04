@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -7,6 +7,8 @@
 		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 		<link rel="stylesheet" href="css/materialize.min.css">
 		<link rel="stylesheet" href="css/sweetalert.css">
+		<link rel="stylesheet" href="css/slick.css">
+		<link rel="stylesheet" href="css/slick-theme.css">
 		<link rel="stylesheet" href="css/style.css">
 		<title>Deargift</title>
 	</head>
@@ -22,6 +24,9 @@
 					<li><div class="divider"></div></li>
 					<li><a href="profile.html">Perf&iacute;l</a></li>
 					<li><a href="calendar.html">Calendario de actividades</a></li>
+					<li><a href="#!">Historial de compras</a></li>
+					<li><a href="#!">Lista de deseos</a></li>
+					<li><a href="#!">Empresas que participan</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -36,7 +41,6 @@
 						<option value="" disabled selected>Seleccione una opci&oacute;n</option>
 						<option value="mujer">Mujer</option>
 						<option value="hombre">Hombre</option>
-						<option value="ambos">Ambos</option>
 					</select>
 					<label>La personas especial a regalar es</label>
 				</div>
@@ -55,16 +59,17 @@
 				<div class="margin-top-10 input-field">
 					<select id="pasatiempo" name="pasatiempo" class="white-font icons" multiple>
 						<option value="" disabled selected>Selecci&oacute;n m&uacute;ltiple</option>
-						<option value="2" data-icon="img/lectura.jpg" class="circle">Lectura</option>
+						<option value="2" data-icon="img/lectura.jpg" class="circle">Accesorios para lectura</option>
 						<option value="12" data-icon="img/guitarra.jpg" class="circle">M&uacute;sica</option>
-						<option value="22" data-icon="img/deportes.jpg" class="circle">Deportes</option>
-						<option value="32" data-icon="img/accesorio.jpg" class="circle">Accesorios</option>
+						<option value="22" data-icon="img/deportes.jpg" class="circle">Implementos deportivos</option>
+						<option value="32" data-icon="img/accesorio.jpg" class="circle">Accesorios de vestir</option>
 						<option value="42" data-icon="img/articulo.jpg" class="circle">Art&iacute;culos personalizables</option>
+						<option value="52" data-icon="img/ropa.jpg" class="circle">Ropa</option>
 					</select>
-					<label>Pasatiempos</label>
+					<label>Gustos</label>
 				</div>
 
-				<div class="margin-top-10 input-field">
+				<div id="color-div" class="margin-top-10 input-field">
 					<select id="color" name="color" class="white-font icons">
 						<option value="" disabled selected>Seleccione una opci&oacute;n</option>
 						<option value="12" data-icon="img/frio.jpg" class="circle">Colores fr&iacute;os (tonos  verde, azul y morado)</option>
@@ -120,23 +125,67 @@
 				</div>
 			</div>
 		</center>
+		
+					
 
-		<footer class="page-footer">
-			<div class="footer-copyright">
-				<div class="carousel">
-					<a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
-					<a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
-					<a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
-					<a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
-					<a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
+		
+            <div class="one-time margin-top">
+					<div>
+						<center>
+							<img class="carousel-item" src="https://image.freepik.com/iconos-gratis/forma-caja-de-regalo-negro-en-perspectiva-con-una-cinta-en-la-parte-superior_318-40072.jpg">
+							<p class="white-font">Empresa 1</p>
+						</center>
+					</div>
+
+					<div>
+						<center>
+							<img class="carousel-item" src="https://image.freepik.com/iconos-gratis/caja-de-regalo-negro-con-rayas-delgadas-en-perspectiva_318-39997.jpg">
+							<p class="white-font">Empresa 2</p>
+						</center>
+					</div>
+
+					<div>
+						<center>
+							<img class="carousel-item" src="https://image.freepik.com/iconos-gratis/caja-de-regalo-cubo_318-40696.jpg">
+							<p class="white-font">Empresa 3</p>
+						</center>
+					</div>
+
 				</div>
-			</div>
-		</footer>
-
+         
+			
+		
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="js/materialize.min.js"></script>
 		<script src="js/sweetalert.min.js"></script>
+		<script src="js/slick.min.js"></script>
 		<script src="js/main.js"></script>
 		
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="row carousel">
+					<div class="col s4">
+						<img class="responsive-img carousel-item" src="https://image.freepik.com/iconos-gratis/forma-caja-de-regalo-negro-en-perspectiva-con-una-cinta-en-la-parte-superior_318-40072.jpg">
+					</div>
+
+					<div class="col s4">
+						<img class="responsive-img carousel-item" src="https://image.freepik.com/iconos-gratis/caja-de-regalo-negro-con-rayas-delgadas-en-perspectiva_318-39997.jpg"></a>
+					</div>
+
+					<div class="col s4">
+						<img class="responsive-img carousel-item" src="https://image.freepik.com/iconos-gratis/caja-de-regalo-cubo_318-40696.jpg">
+					</div>
+				</div>
+-->
