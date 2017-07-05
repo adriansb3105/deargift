@@ -245,3 +245,18 @@ body {
  @media only screen and (max-width: 500px) {
     
 }
+
+
+
+
+.profile-font{
+	font-size: 5vw;
+}
+
+.gray-bg{
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.round{
+	border-radius: 15px;
+}

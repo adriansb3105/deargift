@@ -336,6 +336,8 @@ $(document).ready(function(){
 
 
 	let page = 'https://deargift.herokuapp.com/?';
+	//let page = 'http://localhost/deargift-server/?';
+	let isColor = false;
 
 	$("#div2").hide();
 	$("#div3").hide();
@@ -365,11 +367,14 @@ $('#pasatiempo').on('change', function(){
 		let str = pasatiempo.toString();
 		if(str.includes('32') || str.includes('42') || str.includes('52')){
 			$("#color-div").show();
+			isColor = true;
 		}else{
 			$("#color-div").hide();
+			isColor = false;
 		}
 	}else{
 		$("#color-div").hide();
+		isColor = false;
 	}
 });
 
@@ -437,7 +442,17 @@ $('.one-time').slick({
 			    },
 			    success: function(result,status,xhr){
 			    	let res = JSON.parse(result);
+
 			    	if(res.length != 0){
+
+			    		console.log(res);
+
+			    		/*variables de sesion*/
+
+			    		//window.localStorage.setItem('user', '');
+
+
+
 			    		window.location = 'home.html';
 			    	}else{
 			    		swal('Login incorrecto', 'Usuario o contrasena incorrectos', "warning");
@@ -467,8 +482,22 @@ $('.one-time').slick({
 			    },
 			    success: function(result,status,xhr){
 			    	let res = JSON.parse(result);
+
+			    	console.log(JSON.parse(result)[0]);
+
 			    	if(res.length != 0){
+
+
+			    		window.localStorage.setItem('nombre', res[0].nombre);
+			    		window.localStorage.setItem('email', res[0].email);
+
+
+			    		
 			    		window.location = 'home.html';
+			    	
+
+
+
 			    	}
 			    	$("#preloader-login").hide();
 			    },
@@ -554,10 +583,19 @@ $('.one-time').slick({
 		console.log(color);
 		console.log('-----------------------');
 
-		if($.trim(sexo) === '' || $.trim(etapa) === '' || pasatiempo.length === 0 || $.trim(color) === ''){//vacios
+		if($.trim(sexo) === '' || $.trim(etapa) === '' || $.trim(pasatiempo) === ''){//vacios
+			swal('Faltan filtros', 'Debe completar todos los campos', "warning");
+			return false;
+		}else if($.trim(color) === '' && isColor){
 			swal('Faltan filtros', 'Debe completar todos los campos', "warning");
 			return false;
 		}else{
+
+			if(!isColor){
+				color = 'todos';
+			}
+
+
 			$.ajax({
 			    data: {'sexo': sexo, 'etapa': etapa, 'pasatiempo': pasatiempo, 'color': color},
 			    url: page+'getProducts',
