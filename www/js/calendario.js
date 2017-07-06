@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-  //let page = 'https://deargift.herokuapp.com/?';
-  let page = 'http://localhost/deargift-server/?';
+  let page = 'https://deargift.herokuapp.com/?';
+  //let page = 'http://localhost/deargift-server/?';
 
 /*let eventos = [
   {date: "2017-06-14", event: 'Dia de la madre', type: 'default'},
