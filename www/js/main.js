@@ -335,8 +335,8 @@ function autoplay() {
 $(document).ready(function(){
 
 
-	let page = 'https://deargift.herokuapp.com/?';
-	//let page = 'http://localhost/deargift-server/?';
+	//let page = 'https://deargift.herokuapp.com/?';
+	let page = 'http://localhost/deargift-server/?';
 	let isColor = false;
 
 	$("#div2").hide();
@@ -354,10 +354,22 @@ $(document).ready(function(){
 		window.location = 'form.html';
 	});
 
+	$('#btn-new-event').on('click', function(){
+		window.location = 'nuevoEvento.html';
+	});
+
+	
+
 	$('#btn-return2').on('click', function(){
 		$("#div3").hide();
 		$("#div2").show();
 	});
+
+$('.datepicker').pickadate({
+    //selectMonths: true, // Creates a dropdown to control month
+    //selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+
 
 $('#pasatiempo').on('change', function(){
 	
@@ -404,6 +416,44 @@ $('.one-time').slick({
 
 
 
+	$('#add-event').on('click', function(){
+		let date = $('#date-event').val();
+		let desc = $('#description-event').val();
+
+		if($.trim(date) === '' || $.trim(desc) === ''){//vacios
+			swal('Error', 'Debe ingresar todos los campos', "error");
+			return false;
+		}else{
+
+			let dia = date.substring(0,2);
+		    let mes = date.substring(3,5);
+		    let anio = date.substring(6,10);
+
+		    date = anio +'-'+ mes +'-'+ dia;
+
+			$.ajax({
+			    data: {'date': date, 'desc': desc},
+			    url: page+'createEvent',
+			    type: 'post',
+			    success: function(result,status,xhr){
+
+			    	if(result){
+			    		window.location = 'calendar.html';
+			    	}else{
+			    		swal('Error', 'No se pudo crear el evento', "warning");
+			    	}
+			    },
+			    error(xhr, status, error){
+			    	swal('Error', 'No se pudo crear el evento', "error");
+			    }
+  			});
+
+  			
+		}
+	});
+
+
+
 	
 	$('#iniciar').on('click', function(){
 		window.location = 'login.html';
@@ -416,7 +466,7 @@ $('.one-time').slick({
 		$('#terminos').attr('checked', 'checked');
 	});
 
-	$('#btn-entrar').on('click', function(e){
+	$('#btn-entrar-false').on('click', function(e){
 		e.preventDefault();
 
 		let email = $('#email-login').val();
@@ -576,12 +626,6 @@ $('.one-time').slick({
 		let pasatiempo = $('#pasatiempo').val();
 		let color = $('#color').val();
 		
-		
-		console.log(sexo);
-		console.log(etapa);
-		console.log(pasatiempo);
-		console.log(color);
-		console.log('-----------------------');
 
 		if($.trim(sexo) === '' || $.trim(etapa) === '' || $.trim(pasatiempo) === ''){//vacios
 			swal('Faltan filtros', 'Debe completar todos los campos', "warning");
@@ -592,8 +636,14 @@ $('.one-time').slick({
 		}else{
 
 			if(!isColor){
-				color = 'todos';
+				color = 42;
 			}
+
+			console.log(sexo);
+			console.log(etapa);
+			console.log(pasatiempo);
+			console.log(color);
+			console.log('-----------------------');
 
 
 			$.ajax({
