@@ -177,8 +177,6 @@ div.desc {
 }
 
 
-
-
 body {
     display: flex;
     min-height: 100vh;
@@ -240,9 +238,9 @@ body {
 
 
 
-
-
-
+.empresa-img{
+	width: 35%;
+}
 
 
 
@@ -263,4 +261,8 @@ body {
 
 .round{
 	border-radius: 15px;
+}
+
+ul#recursos{
+	list-style: default;
 }

@@ -466,9 +466,9 @@ $('.one-time').slick({
 		$('#terminos').attr('checked', 'checked');
 	});
 
-	$('#btn-entrar-false').on('click', function(e){
+	$('#btn-entrar').on('click', function(e){
 		e.preventDefault();
-
+		/*
 		let email = $('#email-login').val();
 		let password = $('#password-login').val();
 		let expresion = /\w+@\w+\.+[a-z]/;
@@ -497,7 +497,7 @@ $('.one-time').slick({
 
 			    		console.log(res);
 
-			    		/*variables de sesion*/
+			    		//variables de sesion
 
 			    		//window.localStorage.setItem('user', '');
 
@@ -514,7 +514,7 @@ $('.one-time').slick({
 			    	$("#preloader-login").hide();
 			    }
   			});
-		}
+		}*/
 	});
 
 	$('#btn-test').on('click', function(e){
@@ -646,6 +646,9 @@ $('.one-time').slick({
 			console.log('-----------------------');
 
 
+			let correo = window.localStorage.getItem('email');
+
+
 			$.ajax({
 			    data: {'sexo': sexo, 'etapa': etapa, 'pasatiempo': pasatiempo, 'color': color},
 			    url: page+'getProducts',
@@ -739,7 +742,37 @@ $('.one-time').slick({
 										confirmButtonText: "Si!",
 										closeOnConfirm: false
 									}, function(){
-										swal({title: "Agregado!", text: "Se ha agregado este producto a tu cesta de compras!", timer: 2000, showConfirmButton: false});
+
+
+			$.ajax({
+			    data: {	'correo':correo,
+						'id':res[i].id,
+						'nombre':res[i].nombre,
+						'descripcion':res[i].descripcion,
+						'precio':res[i].precio,
+						'sexo':res[i].sexo,
+						'categoria':res[i].categoria,
+						'etapa':res[i].etapa,
+						'color':res[i].color,
+						'url':res[i].url},
+			    url: page+'buy',
+			    type: 'post',
+			    success: function(result,status,xhr){
+			    	
+			    	if(result){
+
+			    		swal({title: "Agregado!", text: "Se ha agregado este producto a tu cesta de compras!", timer: 2000, showConfirmButton: false});
+
+			    	}else{
+			    		swal('Error al comprar el producto', 'No se pudo agregar este producto', "error");
+			    	}
+			    },
+			    error(xhr, status, error){
+			    	swal('Error al comprar el producto', 'No se pudo agregar este producto', "error");
+			    }
+  			});
+
+			
 									});
 								});
 	
