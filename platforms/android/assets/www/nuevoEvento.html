@@ -30,53 +30,40 @@
 			</div>
 		</nav>
 
+
 		<div class="container">
-			<div id="mini-clndr" class=""></div>
+			<p class="margin-top white-font title-font2">Agregar un evento</p>
 
-			<script id="calendar-template" type="text/template">
-				<div class="controls">
-					<div class="clndr-previous-button">&lsaquo;</div><div class="month"><%= month %></div><div class="clndr-next-button">&rsaquo;</div>
-				</div>
+			<div class="row margin-top">
+				<label for="date">Seleccione la fecha para su evento</label>
+				<input id="date-event" type="date" class="datepicker">
+			</div>
 
-				<div class="days-container">
-					<div class="days">
-						<div class="headers">
-							<% _.each(daysOfTheWeek, function(day) { %><div class="day-header"><%= day %></div><% }); %>
-						</div>
-						<% _.each(days, function(day) { %><div class="<%= day.classes %>" id="<%= day.id %>"><%= day.day %></div><% }); %>
-					</div>
-				</div>
-			</script>
+			<div class="row">
+			    <form class="col s12">
+			      <div class="row">
+			        <div class="input-field col s12">
+			          <textarea id="description-event" class="materialize-textarea"></textarea>
+			          <label for="description-event">Ingrese una descripci&oacute;n para su evento</label>
+			        </div>
+			      </div>
+			    </form>
+			  </div>
 		</div>
 		
-		<div id="eventsTable" class="date-table">
-			<table class="bordered highlight centered">
-				<thead>
-					<tr>
-						<th>Fecha</th>
-						<th>Evento</th>
-					</tr>
-				</thead>
-
-				<tbody>
-					
-				</tbody>
-			</table>
-		</div>
 
 		<div class="container">
-			<div class="margin-bottom margin-top right"><a id="btn-new-event" class="waves-effect waves-light btn">Agregar un evento</a></div>
+			<div class="right"><a id="add-event" class="waves-effect waves-light btn">Agregar</a></div>
 		</div>
 		
 
 		<script src="js/jquery-3.2.1.min.js"></script>
-		<script src="js/materialize.min.js"></script>
+		<script src="js/materialize.js"></script>
 		<script src="js/sweetalert.min.js"></script>
 		<script src="js/underscore.js"></script>
 		<script src="js/moment.js"></script>
 		<script src="js/clndr.js"></script>
 		<script src="js/slick.min.js"></script>
 		<script src="js/main.js"></script>
-		<script src="js/calendario.js"></script>
 	</body>
 </html>

@@ -24,6 +24,10 @@ body{
 	font-size: 4em;
 }
 
+.title-font2{
+	font-size: 2em;
+}
+
 .title ul a{
 	margin-left: 0;
 }
@@ -149,8 +153,27 @@ div.desc {
 	height: 15em;
 }
 
+
+
+.page-footer{
+	height: 25vh;
+}
+
+
+.one-time{
+	width: 100%;
+	height: 25vh;
+}
+
+
 .carousel-item{
-	
+	width: 50px;
+}
+
+
+.one-time div img{
+	width: 50%;
+	height: 15vh;
 }
 
 
@@ -215,12 +238,31 @@ body {
 
 
 
-
-
-
+.empresa-img{
+	width: 35%;
+}
 
 
 
  @media only screen and (max-width: 500px) {
     
+}
+
+
+
+
+.profile-font{
+	font-size: 5vw;
+}
+
+.gray-bg{
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.round{
+	border-radius: 15px;
+}
+
+ul#recursos{
+	list-style: default;
 }

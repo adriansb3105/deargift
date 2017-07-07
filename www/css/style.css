@@ -266,3 +266,10 @@ body {
 ul#recursos{
 	list-style: default;
 }
+
+
+#map {
+   width: 70%;
+   height: 60vw;
+   background-color: grey;
+ }
